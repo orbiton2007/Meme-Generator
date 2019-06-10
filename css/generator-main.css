@@ -1,0 +1,49 @@
+
+
+#main-canvas{
+    border: black 1px solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* helpers */
+
+/* flex */
+
+.flex {
+    display: flex;
+}
+.column{
+    flex-direction: column;
+}
+.flex.wrap {
+    flex-wrap: wrap;
+}
+.align-center {
+    align-items: center;
+}
+.justify-center {
+    justify-content: center;
+}
+.space-between {
+    justify-content: space-between;
+}
+/* Lists */
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}

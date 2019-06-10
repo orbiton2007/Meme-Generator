@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/generator.css">
+</head>
+
+<body onload="onInitGenerator()">
+    <header>
+        <div class="logo">Memes Generator</div>
+        <div class="to-homepage"> <a href="homepage.html">Back to homepage</a></div>
+    </header>
+    <main class="container">
+        <section class="canvas">
+            <canvas id="main-canvas" width="450" height="450"></canvas>
+            <div class="download-and-share">
+                <div class="download-canvas">download canvas</div>
+                <div>Share Canvas</div>
+            </div>
+        </section>
+
+
+        <section class="generator-tools">
+
+            <div class="text-boxs">
+
+            </div>
+
+            <div class="add-line">
+                <button type="button" onclick="onAddLine()">Add a new line</button>
+            </div>
+
+
+
+
+        </section>
+    </main>
+
+    <script src="js/util.js"></script>
+    <script src="js/gallery-service.js"></script>
+    <script src="js/generator-service.js"></script>
+    <script src="js/gallery-main.js"></script>
+    <script src="js/generator-main.js"></script>
+</body>
+
+</html>

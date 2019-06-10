@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/gallery-main.css">
+</head>
+
+<body onload="onInitHomepage()">
+
+    <section class="main-navbar flex align-center space-between">
+        <span class="search-img">Search: <input type="text" class="search-input" 
+            placeholder=" Enter keyword for search" onkeyup="onSearchImg(this.value)"></span>
+            <h2>Meme Generator</h2>
+        <!-- <nav class="main-nav container">
+            <ul class="main-nav-list clean-list flex space-between">
+            </ul>
+        </nav> -->
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </section>
+
+    <main class="main-container">
+        <section class="imgs-container">
+
+        </section>
+
+        <section id="about" class="info-container">
+            <div class="info">
+                <h2>Michael Ozery & Or Biton</h2>
+                <h3>Full stack developers</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, nobis quibusdam! Corporis dolore nihil
+                    similique ipsam? Facilis nihil quidem modi dignissimos facere ad explicabo voluptatum officiis. A
+                    amet
+                    cumque repudiandae.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-container flex space-between">
+            <div class="footer-form-container flex column  justify-center">
+                <h2>Get in touch</h2>
+                <h3>contact</h3>
+                <form>
+                    <div>
+                        <label>
+                            <input type="text" placeholder=" Name(required)" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+
+                            <input type="email" placeholder=" Email(required)" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="text" placeholder=" Subject" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="text-area" class="input-text-area" placeholder=" Write your message here"
+                                required>
+                        </label>
+                    </div>
+                    <div>
+                        <button class="btn-send">Send</button>
+                    </div>
+                </form>
+            </div>
+            <div class="footer-contact-info flex column align-center justify-center">
+                <p>Address</p>
+                <p>Phone</p>
+                <p>Email</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal - menu -->
+    <div class="modal-menu">
+        <div class="modal-content-menu">
+            <span class="close-menu">&times;</span>
+            <ul>
+                <li><a href="#" onclick="onAddImg()">Add Image</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Get in touch</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal - Add-img -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <div>
+                    <label>
+                        Enter Url:
+                        <input type="text" class="input-url" autofocus required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Enter Keyword/s:
+                        <input type="text" class="input-keywords" required>
+                    </label>
+                </div>
+                <div><button onclick="onSubmitAddImg()">Submit</button></div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="js/util.js"></script>
+    <script src="js/gallery-service.js"></script>
+    <script src="js/gallery-main.js"></script>
+</body>
+
+</html>
