@@ -74,10 +74,8 @@ function sortWordsByPopularity(keywordCountMap) {
 //Rendering to the homepage the top 5 searches with size by popularity on a random order.
 function renderTopFiveSearches() {
     let topFiveSearches = sortWordsByPopularity(keywordsCountMap);
-    console.log(topFiveSearches);
     let strHTML = topFiveSearches.map((word, index) =>
         `<p class="font-size${index}">${word[0]}</p>`)
-        console.log(strHTML);
     document.querySelector('.top-searches').innerHTML = shuffle(strHTML).join('');
 }
 

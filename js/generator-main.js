@@ -17,8 +17,8 @@ function onInitGenerator() {
         txt: '',
         size: 50,
         family: 'impact',
-        color: 'white',
-        strokeColor: 'black',
+        color: '#ffffff',
+        strokeColor: '#000000',
         align: 'center',
         width: 0
     },
@@ -31,8 +31,8 @@ function onInitGenerator() {
         txt: '',
         size: 50,
         family: 'impact',
-        color: 'white',
-        strokeColor: 'black',
+        color: '#ffffff',
+        strokeColor: '#000000',
         align: 'center',
         width: 0
     }];
@@ -87,11 +87,6 @@ function onMoveLine(direction, lineId) {
     drawText()
 }
 
-function onFocusLine(idx) {
-    gMeme.lineIdx = idx;
-    console.log(gMeme.lineIdx);
-}
-
 //Adding a new txt line object to the gMemes
 function onAddLine() {
     createNewLine('');
@@ -123,7 +118,7 @@ function renderLineBox(lineId) {
     let innerHTML = `
         <div class="txt-item-${lineId} new-line">
                 <div><input type="textarea" class="line-input" placeholder=" Write something..." value="${gMeme.txts[lineIdx].txt}" data-id="${lineId}"
-                        onkeyup="onDrawText(this.value, this.dataset.id)" onclick="onFocusLine(${lineIdx})" />
+                        onkeyup="onDrawText(this.value, this.dataset.id)"/>
                     <button class="line-btn remove-line" data-id="${lineId}" onclick="onDeleteLine(this.dataset.id)">X</button>
                 </div>
                 <div class="btns">
@@ -177,39 +172,3 @@ function removeLineBoxs() {
         removeLineBox(txt.lineId)
     });
 }
-
-// function onClickCanvas(ev) {
-//     let { offsetX, offsetY } = ev;
-//     console.log(ev);
-//     console.log('x:', offsetX, 'y:', offsetY);
-//     // let txtLines = gMeme.txts;
-//     // txtLines.forEach(txt => {
-// let txt = gMeme.txts[0];
-//     console.log('x + width * 1/2=', txt.lineCoords.x + (txt.width * 0.5) )
-//         console.log('x - width * 1/2=', txt.lineCoords.x - txt.width * 0.5 )
-
-//         if (gCanvas.width/2 + txt.width * 0.5 >= offsetX
-//             && gCanvas.width/2 - txt.width * 0.5 <= offsetX
-//             && txt.lineCoords.y + txt.size * 0.5 >= offsetY
-//             && txt.lineCoords.y - txt.size * 0.5 <= offsetY) {
-//             }
-//     // });
-//     // findLineByPos(offsetX, offsetY);
-// }
-
-// function findLineByPos(x, y) {
-//     return gMeme.txts.find(txt => {
-//         if (!(Math.abs(x - txt.lineCoords.x) < txt.width / 2)) return false;
-//         if (!(y- txt.lineCoords.y  < txt.size)) return false;
-//         return true;
-//     });
-// }
-
-// function onCanvasRelease() {
-
-// }
-
-// function onDragTxt(ev) {
-
-// }
-
