@@ -15,14 +15,35 @@ body{
     display: grid;
     grid-template-rows: 1fr 4fr 4fr;
     font-family: lato;
+    background-color: rgb(235, 243, 239);
 }
 .main-navbar{
     width: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     background-color: #323232;
     height: 50px;
     grid-row: 1/2;
     color: #ffffff;
+}
+.top-searches{
+    padding-left: 50px;
+    padding-right: 50px;
+    color: #20816d;
+}
+.font-size0 {
+    font-size: 0.8rem;
+}
+.font-size1 {
+    font-size: 1rem;
+}
+.font-size2 {
+    font-size: 1.2rem;
+}
+.font-size3 {
+    font-size: 1.5rem;
+}
+.font-size5 {
+    font-size: 2rem;
 }
 .main-navbar h2{
     font-size: 2rem;
@@ -295,6 +316,10 @@ footer .btn-send{
 
 
 @media (max-width: 850px) {
+    .top-searches{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
     .imgs-container{
         width: 100%;
         margin-bottom: 80px;
@@ -325,6 +350,10 @@ footer .btn-send{
 }
 
 @media (max-width: 670px) {
+    .top-searches{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .imgs-container{
         max-width: 600px;
         margin: 0 auto;

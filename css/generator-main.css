@@ -15,6 +15,7 @@ body{
     display: grid;
     grid-template-rows: 1fr 5fr;
     font-family: lato;
+    background-color: rgb(235, 243, 239);
 }
 header{
     grid-row: 1/2;

@@ -12,18 +12,14 @@
 <body onload="onInitHomepage()">
 
     <section class="main-navbar flex align-center space-between">
-        <span class="search-img">Search: <input type="text" class="search-input" 
-            placeholder=" Enter keyword for search" onkeyup="onSearchImg(this.value)"></span>
-            <h2>Meme Generator</h2>
-        <!-- <nav class="main-nav container">
-            <ul class="main-nav-list clean-list flex space-between">
-            </ul>
-        </nav> -->
+        <span class="search-img">Search: <input type="text" class="search-input" placeholder=" Enter keyword for search"
+                onkeyup="onSearchImg(this.value)"></span>
+        <h2>Meme Generator</h2>
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </section>
 
     <main class="main-container">
-        <!-- <section class="top-searches">Popular words</section> -->
+        <section class="top-searches flex space-between">Popular words</section>
         <section class="imgs-container">
 
         </section>
@@ -42,37 +38,36 @@
     </main>
 
     <footer id="contact">
-            <div class="footer-form-container flex column justify-center">
-                <h2>Get in touch</h2>
-                <h3>contact</h3>
-                <form>
-                    <div>
-                        <label>
-                            <input type="text" placeholder=" Name(required)" required>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
+        <div class="footer-form-container flex column justify-center">
+            <h2>Get in touch</h2>
+            <h3>contact</h3>
+            <form>
+                <div>
+                    <label>
+                        <input type="text" placeholder=" Name(required)" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
 
-                            <input type="email" placeholder=" Email(required)" required>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="text" placeholder=" Subject" required>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="text-area" class="input-text-area" placeholder=" Write your message here"
-                                required>
-                        </label>
-                    </div>
-                    <div>
-                        <button class="btn-send">Send</button>
-                    </div>
-                </form>
-            </div>
+                        <input type="email" placeholder=" Email(required)" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="text" placeholder=" Subject" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="text-area" class="input-text-area" placeholder=" Write your message here" required>
+                    </label>
+                </div>
+                <div>
+                    <button class="btn-send">Send</button>
+                </div>
+            </form>
+        </div>
     </footer>
 
 
