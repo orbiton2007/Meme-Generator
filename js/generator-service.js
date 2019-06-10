@@ -51,18 +51,6 @@ function clearCanvas() {
     ctx.restore();        // restore the transform
 }
 
-function clearText() {
-    //Deleting all the canvas, also the text
-    clearCanvas(gCanvas);
-    //After the deletion, the image is being drawn again to the canvas
-    showImg();
-}
-
-function clearAll() {
-    gMeme.txts = [];
-    clearText();
-}
-
 function createNewLine(txt) {
     //Setting the new txt object in the middle, with default hard-coded properties.
     gNum++;
@@ -101,19 +89,19 @@ function moveLine(direction, lineId) {
         left: line.size * 1.5
     }
     if (direction === 'up') {
-        if (line.lineCoords.y <= canvasLimit.top) return;
+        // if (line.lineCoords.y <= canvasLimit.top) return;
         line.lineCoords.y -= 2;
     }
     else if (direction === 'down') {
-        if (line.lineCoords.y >= canvasLimit.bottom) return;
+        // if (line.lineCoords.y >= canvasLimit.bottom) return;
         line.lineCoords.y += 2;
     }
     else if (direction === 'left') {
-        if (line.lineCoords.x <= canvasLimit.left) return;
-        else line.lineCoords.x -= 2;
+        // if (line.lineCoords.x <= canvasLimit.left) return;
+        line.lineCoords.x -= 2;
     }
     else if (direction === 'right') {
-        if (line.width + line.lineCoords.x >= canvasLimit.right) return;
+        // if (line.width + line.lineCoords.x >= canvasLimit.right) return;
         line.lineCoords.x += 2;
     }
 }
@@ -122,7 +110,7 @@ function changeAlignment(alignment, lineId) {
     let line = gMeme.txts[lineId];
     if (alignment === 'align-left') {
         line.align = 'left';
-        line.lineCoords.x = line.size * 1.5;
+        line.lineCoords.x = line.size * 0.5;
         console.log(line.lineCoords.x);
     }
     else if (alignment === 'align-center') {
@@ -132,7 +120,7 @@ function changeAlignment(alignment, lineId) {
     }
     else if (alignment === 'align-right') {
         line.align = 'right';
-        line.lineCoords.x = gCanvas.width - line.size * 1.5;
+        line.lineCoords.x = gCanvas.width - line.size * 0.5;
     }
 }
 

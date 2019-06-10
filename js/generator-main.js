@@ -6,7 +6,7 @@ let gCtx;
 function onInitGenerator() {
     gCanvas = document.getElementById('main-canvas');
     gCtx = gCanvas.getContext('2d');
-    gImgs = loadFromStorage('gImgs');
+    gImgs = loadFromStorage('images');
     gMeme.selectedImgId = loadFromStorage('imgId');
     showImg();
     gMeme.txts = [{
@@ -42,29 +42,25 @@ function onInitGenerator() {
 
 function onDrawText(txt, lineId) {
     saveTxt(txt, lineId);
-    clearText();
     showImg();
-}
-
-function onClearText() {
-    clearText();
 }
 
 //Note: We still didn't implement it in our DOM
 function onClearAll() {
-    clearAll();
+    gMeme.txts = [];
+    showImg();
 }
 
 function onChooseColor(color, lineId) {
     console.log('Changing color to', color);
     changeTxtColor(color, lineId);
-    clearText();
+    showImg();
     drawText();
 }
 
 function onChooseStrokeColor(color, lineId) {
     changeStrokeColor(color, lineId);
-    clearText();
+    showImg();
     drawText()
 }
 
@@ -75,21 +71,21 @@ function onChangeFontSize(fontSize, lineId) {
     changeFontLining(fontSize, prevSize, lineId);
     //And then also change the font size:
     changeFontSize(fontSize, lineId);
-    clearText();
+    showImg();
     drawText();
 }
 
 function onChangeFontFamily(fontFamily, lineId) {
     if (fontFamily === '') return;
     changeFontFamily(fontFamily, lineId);
-    clearText();
+    showImg();
     drawText();
 }
 
 //Note: We need to fix the boundaries issue.
 function onMoveLine(direction, lineId) {
     moveLine(direction, lineId);
-    clearText();
+    showImg();
     drawText()
 }
 
@@ -103,14 +99,14 @@ function onAddLine() {
 
 function onChangeAlignment(alignment, lineId) {
     changeAlignment(alignment, lineId);
-    clearText();
+    showImg();
     drawText();
 }
 
 function onDeleteLine(lineId) {
     deleteLine(lineId);
     removeLineBox(lineId);
-    clearText();
+    showImg();
     drawText();
 }
 
