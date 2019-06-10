@@ -1,6 +1,7 @@
 'use strict'
 let gMeme = {
     selectedImgId: 0,
+    currLineIdx: 0,
     txts: []
 }
 var gNum = 1;
@@ -9,7 +10,6 @@ function showImg() {
     let chosenImg = new Image()
     chosenImg.src = gImgs[gMeme.selectedImgId].url;
     chosenImg.addEventListener('load', function () {
-        console.log('finished loading')
         gCtx.drawImage(chosenImg, 0, 0, gCanvas.width, gCanvas.height);
         drawText()
     });
@@ -32,7 +32,6 @@ function saveTxt(txt, lineId) {
 //NOTE: Also need to make the line break when reaching the edges
 function drawText() {
     gMeme.txts.forEach(function (txt) {
-        console.log('inside draw text')
         defineGctx(txt);
         txt.width = gCtx.measureText(txt.txt).width;
         gCtx.fillText(txt.txt, txt.lineCoords.x, txt.lineCoords.y);
@@ -40,7 +39,6 @@ function drawText() {
     });
 }
 
-//Note: to be honest, I dont know what setTransform and restoreTransform are doing. I kind of copied this function from somewhere.
 function clearCanvas() {
     let ctx = gCanvas.getContext('2d');     // gets reference to canvas context
     ctx.beginPath();    // clear existing drawing paths
@@ -82,28 +80,10 @@ function changeStrokeColor(color, lineId) {
 //NOTE: Got to fix the boundaries when moving the text to the left and right
 function moveLine(direction, lineId) {
     let line = gMeme.txts[lineId];
-    let canvasLimit = {
-        top: line.size * 1.5,
-        bottom: gCanvas.height - line.size * 1.5,
-        right: gCanvas.width - line.size * 1.5,
-        left: line.size * 1.5
-    }
-    if (direction === 'up') {
-        // if (line.lineCoords.y <= canvasLimit.top) return;
-        line.lineCoords.y -= 2;
-    }
-    else if (direction === 'down') {
-        // if (line.lineCoords.y >= canvasLimit.bottom) return;
-        line.lineCoords.y += 2;
-    }
-    else if (direction === 'left') {
-        // if (line.lineCoords.x <= canvasLimit.left) return;
-        line.lineCoords.x -= 2;
-    }
-    else if (direction === 'right') {
-        // if (line.width + line.lineCoords.x >= canvasLimit.right) return;
-        line.lineCoords.x += 2;
-    }
+    if (direction === 'up') line.lineCoords.y -= 6;
+    else if (direction === 'down') line.lineCoords.y += 6;
+    else if (direction === 'left') line.lineCoords.x -= 6;
+    else if (direction === 'right') line.lineCoords.x += 6;
 }
 
 function changeAlignment(alignment, lineId) {
@@ -111,7 +91,6 @@ function changeAlignment(alignment, lineId) {
     if (alignment === 'align-left') {
         line.align = 'left';
         line.lineCoords.x = line.size * 0.5;
-        console.log(line.lineCoords.x);
     }
     else if (alignment === 'align-center') {
         line.align = 'center';
@@ -125,7 +104,6 @@ function changeAlignment(alignment, lineId) {
 }
 
 function changeFontLining(newSize, prevSize, lineId) {
-    console.log('new font size:', newSize);
     if (newSize === prevSize) return;
     if (newSize > prevSize)
         gMeme.txts[lineId].lineCoords.y += +newSize - prevSize;
@@ -145,11 +123,8 @@ function changeFontFamily(fontFamily, lineId) {
 
 function deleteLine(lineId) {
     let lineIdx = gMeme.txts.findIndex(text => text.lineId === lineId);
-    console.log(lineIdx);
     gMeme.txts.splice(lineIdx, 1);
 }
-
-//Note: I don't think it works yet.
 
 function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL()

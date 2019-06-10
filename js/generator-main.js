@@ -1,4 +1,3 @@
-
 'use strict'
 let gCanvas;
 let gCtx;
@@ -52,7 +51,6 @@ function onClearAll() {
 }
 
 function onChooseColor(color, lineId) {
-    console.log('Changing color to', color);
     changeTxtColor(color, lineId);
     showImg();
     drawText();
@@ -89,11 +87,14 @@ function onMoveLine(direction, lineId) {
     drawText()
 }
 
+function onFocusLine(idx) {
+    gMeme.lineIdx = idx;
+    console.log(gMeme.lineIdx);
+}
+
 //Adding a new txt line object to the gMemes
 function onAddLine() {
     createNewLine('');
-    console.log('txts arr:', gMeme.txts);
-    console.log('the gNum is:', gNum);
     renderLineBoxs()
 }
 
@@ -110,26 +111,19 @@ function onDeleteLine(lineId) {
     drawText();
 }
 
-
-
 function renderLineBoxs() {
     removeLineBoxs();
     gMeme.txts.forEach(txt => {
         renderLineBox(txt.lineId)
     });
 }
-//Note: We'll need to re-write the innerHTML when we finish writing all the functionality.
-function renderLineBox(lineId) {
-    console.log('')
-    let lineIdx = gMeme.txts.findIndex(txt => +txt.lineId === +lineId);
-    console.log('The line id is:', lineId, 'and the line index is:', lineIdx);
-    // let newId = gMeme.txts[lineIdx].lineId;
-    let placeholder = (gMeme.txts[lineIdx].txt === '') ? 'Write something...' : gMeme.txts[lineIdx].txt;
 
+function renderLineBox(lineId) {
+    let lineIdx = gMeme.txts.findIndex(txt => +txt.lineId === +lineId);
     let innerHTML = `
         <div class="txt-item-${lineId} new-line">
                 <div><input type="textarea" class="line-input" placeholder=" Write something..." value="${gMeme.txts[lineIdx].txt}" data-id="${lineId}"
-                        onkeyup="onDrawText(this.value, this.dataset.id)" />
+                        onkeyup="onDrawText(this.value, this.dataset.id)" onclick="onFocusLine(${lineIdx})" />
                     <button class="line-btn remove-line" data-id="${lineId}" onclick="onDeleteLine(this.dataset.id)">X</button>
                 </div>
                 <div class="btns">
@@ -174,8 +168,7 @@ function renderLineBox(lineId) {
 
 function removeLineBox(lineId) {
     let boxToRemove = document.querySelector(`.txt-item-${lineId}`);
-    if(!boxToRemove) return;
-    console.log(boxToRemove);
+    if (!boxToRemove) return;
     boxToRemove.remove();
 }
 
@@ -185,12 +178,24 @@ function removeLineBoxs() {
     });
 }
 
-function onCanvasClicked(ev) {
-    console.log('clicked canvas! event:', ev)
-    let { offsetX, offsetY } = ev;
-    findLineByPos(offsetX, offsetY);
-    console.log(findLineByPos(offsetX, offsetY));
-}
+// function onClickCanvas(ev) {
+//     let { offsetX, offsetY } = ev;
+//     console.log(ev);
+//     console.log('x:', offsetX, 'y:', offsetY);
+//     // let txtLines = gMeme.txts;
+//     // txtLines.forEach(txt => {
+// let txt = gMeme.txts[0];
+//     console.log('x + width * 1/2=', txt.lineCoords.x + (txt.width * 0.5) )
+//         console.log('x - width * 1/2=', txt.lineCoords.x - txt.width * 0.5 )
+
+//         if (gCanvas.width/2 + txt.width * 0.5 >= offsetX
+//             && gCanvas.width/2 - txt.width * 0.5 <= offsetX
+//             && txt.lineCoords.y + txt.size * 0.5 >= offsetY
+//             && txt.lineCoords.y - txt.size * 0.5 <= offsetY) {
+//             }
+//     // });
+//     // findLineByPos(offsetX, offsetY);
+// }
 
 // function findLineByPos(x, y) {
 //     return gMeme.txts.find(txt => {
