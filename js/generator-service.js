@@ -150,6 +150,7 @@ function deleteLine(lineId) {
 }
 
 //Note: I don't think it works yet.
+
 function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
     elLink.href = data
