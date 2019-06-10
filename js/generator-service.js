@@ -5,7 +5,6 @@ let gMeme = {
     txts: []
 }
 var gNum = 1;
-//Note: there is a problem with loading the image straight away.
 function showImg() {
     let chosenImg = new Image()
     chosenImg.src = gImgs[gMeme.selectedImgId].url;
@@ -15,7 +14,6 @@ function showImg() {
     });
 }
 
-//This function is being used everytime we print a text to the canvas. go to "drawText()" below and you'll get it ;)
 function defineGctx(txt) {
     gCtx.font = `${txt.size}px ${txt.family}`;
     gCtx.fillStyle = txt.color;
@@ -112,7 +110,6 @@ function changeFontLining(newSize, prevSize, lineId) {
 }
 
 function changeFontSize(fontSize, lineId) {
-    // gProperties.size = fontSize;
     gMeme.txts[lineId].size = fontSize;
 }
 
