@@ -94,7 +94,7 @@ function onAddLine() {
     createNewLine('');
     console.log('txts arr:', gMeme.txts);
     console.log('the gNum is:', gNum);
-    renderLineBox(gNum)
+    renderLineBoxs()
 }
 
 function onChangeAlignment(alignment, lineId) {
@@ -110,7 +110,10 @@ function onDeleteLine(lineId) {
     drawText();
 }
 
+
+
 function renderLineBoxs() {
+    removeLineBoxs();
     gMeme.txts.forEach(txt => {
         renderLineBox(txt.lineId)
     });
@@ -130,9 +133,9 @@ function renderLineBox(lineId) {
                     <button class="line-btn remove-line" data-id="${lineId}" onclick="onDeleteLine(this.dataset.id)">X</button>
                 </div>
                 <div class="btns">
-                    <input class="line-btn btn-color" type="color" data-id="${lineId}" value="#ffffff"
+                    <input class="line-btn btn-color" type="color" data-id="${lineId}" value="${gMeme.txts[lineIdx].color}"
                         onchange="onChooseColor(this.value, this.dataset.id)">
-                    <input class="line-btn btn-color" type="color" data-id="${lineId}"
+                    <input class="line-btn btn-color" type="color" data-id="${lineId}" value="${gMeme.txts[lineIdx].strokeColor}"
                         onchange="onChooseStrokeColor(this.value, this.dataset.id)">
                     <button class="line-btn" id="left" data-id="${lineId}"
                         onmousedown="onMoveLine(this.id, this.dataset.id)">←</button>
@@ -171,8 +174,15 @@ function renderLineBox(lineId) {
 
 function removeLineBox(lineId) {
     let boxToRemove = document.querySelector(`.txt-item-${lineId}`);
-    boxToRemove.remove();
+    if(!boxToRemove) return;
     console.log(boxToRemove);
+    boxToRemove.remove();
+}
+
+function removeLineBoxs() {
+    gMeme.txts.forEach(txt => {
+        removeLineBox(txt.lineId)
+    });
 }
 
 function onCanvasClicked(ev) {

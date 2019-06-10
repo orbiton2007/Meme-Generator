@@ -3,6 +3,8 @@ function onInitHomepage() {
     createImages();
     renderImgs(gImgs);
     saveToStorage('images', gImgs);
+    countByPopularity();    
+    renderTopFiveSearches();
 }
 
 function renderImgs(imgs) {

@@ -3,6 +3,7 @@
 var gId = 0;
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs;
+let keywordsCountMap = {};
 
 function createImages() {
     gImgs = [
@@ -42,9 +43,51 @@ function searchImg(chars, filteredImgs) {
     });
 }
 
-function chooseImg(imgId){
+function chooseImg(imgId) {
     var imgIdx = gImgs.findIndex(function (img) {
         return img.id === imgId;
     });
     saveToStorage('imgId', imgIdx);
+}
+
+//Count words appearances by a count map
+function countByPopularity() {
+    gImgs.forEach(img => {
+        img.keywords.forEach(keyword => {
+            if (!keywordsCountMap[keyword])
+                keywordsCountMap[keyword] = 1;
+            else keywordsCountMap[keyword]++;
+        });
+    });
+}
+
+//Sort top 5 words by popularity
+function sortWordsByPopularity(keywordCountMap) {
+    let sortedKeywords = [];
+    for (let keyword in keywordsCountMap) {
+        sortedKeywords.push([keyword, keywordCountMap[keyword]]);
+    }
+    sortedKeywords.sort((a, b) => b[1] - a[1]);
+    return sortedKeywords.slice(0, 5);
+}
+
+//Rendering to the homepage the top 5 searches with size by popularity on a random order.
+function renderTopFiveSearches() {
+    let topFiveSearches = sortWordsByPopularity(keywordsCountMap);
+    console.log(topFiveSearches);
+    let strHTML = topFiveSearches.map((word, index) =>
+        `<p class="font-size${index}">${word[0]}</p>`)
+        console.log(strHTML);
+    document.querySelector('.top-searches').innerHTML = shuffle(strHTML).join('');
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
 }
