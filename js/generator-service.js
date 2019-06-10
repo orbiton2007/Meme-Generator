@@ -128,6 +128,6 @@ function deleteLine(lineId) {
 
 function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
-    elLink.href = data
-    elLink.download = 'my-meme.jpg'
+    elLink.href = data;
+    elLink.download = 'my-meme.jpg';
 }

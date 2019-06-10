@@ -26,8 +26,10 @@ header{
 .logo{
     font-size: 2rem;
     margin: 0 auto;
+    padding-left: 50px;
 }
 header a{
+    padding-right: 5px;
     text-decoration: none;
     color: #ffffff;
 }
@@ -63,19 +65,23 @@ main{
     border: #2e2727 2px solid;
 }
 .new-line button{
-    margin-left: 5px;
+    padding: 10px;
+    margin-left: 2px;
+    margin-bottom: 15px;
     background-color: #ffffff;
     border-radius: 5px;
     border: #2e2727 2px solid;
 }
 .select-size{
-    margin-left: 5px;
+    padding: 10px;
+    margin-left: 3px;
     background-color: #ffffff;
     border-radius: 5px;
     border: #2e2727 2px solid;
 }
 .new-line .select-font-family{
-    margin-left: 5px;
+    padding: 10px;
+    margin-left: 3px;
     background-color: #ffffff;
     border-radius: 5px;
     border: #2e2727 2px solid;
@@ -92,28 +98,16 @@ main{
     background-color: #2eb398;
 }
 .btn-color{
+    height: 30px;
     background-color: #ffffff;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 .download-canvas{
-    background-color: #ffffff;
-    border-radius: 10px;
-    border: #2e2727 2px solid;
-    margin-left: 20px;
-    padding: 7px;
+    padding: 5px;
     font-size: 1rem;
     font-weight: bold;
-    background-color: #2eb398;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -146,4 +140,112 @@ main{
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+
+
+@media (max-width: 1000px) {
+    .logo{
+        font-size: 1.5rem;
+        padding-left: 50px;
+    }
+    .new-line{
+        margin-bottom: 15px;
+    }
+    .new-line .line-input{
+        height: 30px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    .new-line button{
+        padding: 8px;
+        margin-left: 2px;
+        margin-bottom: 12px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        border: #2e2727 2px solid;
+    }
+    .select-size{
+        padding: 8px;
+        margin-left: 3px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        border: #2e2727 2px solid;
+    }
+    .new-line .select-font-family{
+        padding: 8px;
+        margin-left: 3px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        border: #2e2727 2px solid;
+    }
+    .btn-add-line{
+        background-color: #ffffff;
+        border-radius: 10px;
+        border: #2e2727 2px solid;
+        margin-left: 20px;
+        margin-bottom: 12px;
+        padding: 7px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: #2eb398;
+    }
+    .btn-color{
+        height: 30px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 840px) {
+    .new-line{
+        margin-left: 10px;
+        margin-bottom: 20px;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 710px) {
+    .to-homepage a{
+        font-size: 0.9rem;
+    }
+    main{
+        display: grid;
+        grid-template-rows: 3fr 2fr;
+        grid-template-columns: 1fr;
+    }
+    .canvas{
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    .generator-tools{
+        grid-row: 2/3;
+        grid-column: 1/2;
+
+    }
+
+}
+
+@media (max-width: 500px) {
+    .to-homepage a{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 450px) {
+    main{
+        display: grid;
+        grid-template-rows: 2fr 2fr;
+        grid-template-columns: 1fr;
+    }
+    .canvas{
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    .generator-tools{
+        grid-row: 2/3;
+        grid-column: 1/2;
+
+    }
+    .download-canvas{
+        margin-bottom: 20px;
+    }
 }
