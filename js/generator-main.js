@@ -118,7 +118,7 @@ function renderLineBox(lineId) {
     let innerHTML = `
         <div class="txt-item-${lineId} new-line">
                 <div><input type="textarea" class="line-input" placeholder=" Write something..." value="${gMeme.txts[lineIdx].txt}" data-id="${lineId}"
-                        onkeyup="onDrawText(this.value, this.dataset.id)" onclick="onFocusLine(${lineIdx})" />
+                        onkeyup="onDrawText(this.value, this.dataset.id)"/>
                     <button class="line-btn remove-line" data-id="${lineId}" onclick="onDeleteLine(this.dataset.id)">X</button>
                 </div>
                 <div class="btns">
