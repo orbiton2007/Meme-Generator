@@ -1,4 +1,6 @@
 'use strict'
+
+
 function onInitHomepage() {
     createImages();
     renderImgs(gImgs);
