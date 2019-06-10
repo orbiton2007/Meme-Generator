@@ -124,15 +124,15 @@ function renderLineBox(lineId) {
     let placeholder = (gMeme.txts[lineIdx].txt === '') ? 'Write something...' : gMeme.txts[lineIdx].txt;
 
     let innerHTML = `
-        <div class="txt-item-${lineId}">
-                <div><input type="textarea" class="line-input" placeholder="Write something..." value="${gMeme.txts[lineIdx].txt}" data-id="${lineId}"
+        <div class="txt-item-${lineId} new-line">
+                <div><input type="textarea" class="line-input" placeholder=" Write something..." value="${gMeme.txts[lineIdx].txt}" data-id="${lineId}"
                         onkeyup="onDrawText(this.value, this.dataset.id)" />
                     <button class="line-btn remove-line" data-id="${lineId}" onclick="onDeleteLine(this.dataset.id)">X</button>
                 </div>
                 <div class="btns">
-                    <input class="line-btn" type="color" data-id="${lineId}" value="#ffffff"
+                    <input class="line-btn btn-color" type="color" data-id="${lineId}" value="#ffffff"
                         onchange="onChooseColor(this.value, this.dataset.id)">
-                    <input class="line-btn" type="color" data-id="${lineId}"
+                    <input class="line-btn btn-color" type="color" data-id="${lineId}"
                         onchange="onChooseStrokeColor(this.value, this.dataset.id)">
                     <button class="line-btn" id="left" data-id="${lineId}"
                         onmousedown="onMoveLine(this.id, this.dataset.id)">←</button>
@@ -156,7 +156,7 @@ function renderLineBox(lineId) {
                         <option value="75">75</option>
                         <option value="100">100</option>
                     </select>
-                    <select name="font-family" data-id="${lineId}" onclick="onChangeFontFamily(this.value, this.dataset.id)">
+                    <select class="select-font-family" name="font-family" data-id="${lineId}" onclick="onChangeFontFamily(this.value, this.dataset.id)">
                         <option value=""> Font family</option>
                         <option value="Impact">Impact</option>
                         <option value="Arial">Arial</option>

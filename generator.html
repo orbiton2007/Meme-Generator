@@ -10,17 +10,14 @@
 </head>
 
 <body onload="onInitGenerator()">
-    <header>
+    <header class="flex align-center space-between">
         <div class="logo">Memes Generator</div>
         <div class="to-homepage"> <a href="homepage.html">Back to homepage</a></div>
     </header>
     <main class="container">
         <section class="canvas">
             <canvas id="main-canvas" width="450" height="450"></canvas>
-            <div class="download-and-share">
-                <div class="download-canvas">download canvas</div>
-                <div>Share Canvas</div>
-            </div>
+
         </section>
 
 
@@ -31,7 +28,11 @@
             </div>
 
             <div class="add-line">
-                <button type="button" onclick="onAddLine()">Add a new line</button>
+                <button type="button" class="btn-add-line" onclick="onAddLine()">Add a new line</button>
+            </div>
+
+            <div class="download-and-share">
+                <button class="download-canvas">download canvas</button>
             </div>
 
 

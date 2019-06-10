@@ -1,10 +1,110 @@
 
-
-#main-canvas{
-    border: black 1px solid;
+@font-face{
+    font-family: lato;
+    src: url('../fonts/Lato-Regular.ttf');
 }
 
 
+* {
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    height: 100vh;
+    line-height: 1.25rem;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    font-family: lato;
+}
+header{
+    grid-row: 1/2;
+    background-color: #323232;
+    margin-bottom: 20px;
+    color: #ffffff;
+    height: 50px;
+}
+.logo{
+    font-size: 2rem;
+    margin: 0 auto;
+}
+header a{
+    text-decoration: none;
+    color: #ffffff;
+}
+main{
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.canvas{
+    grid-column: 1/2;
+    width: 100%;
+}
+#main-canvas{
+    width: 100%;
+    height: auto;
+    border: black 1px solid;
+}
+.generator-tools{
+    grid-column: 2/3;
+}
+.new-line{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+.new-line .line-input{
+    width: 80%;
+    height: 38px;
+    background-color: #aaa9a9;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: #2e2727 2px solid;
+}
+.new-line button{
+    margin-left: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: #2e2727 2px solid;
+}
+.select-size{
+    margin-left: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: #2e2727 2px solid;
+}
+.new-line .select-font-family{
+    margin-left: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: #2e2727 2px solid;
+}
+.btn-add-line{
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: #2e2727 2px solid;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding: 7px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2eb398;
+}
+.btn-color{
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+.download-canvas{
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: #2e2727 2px solid;
+    margin-left: 20px;
+    padding: 7px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2eb398;
+}
 
 
 
