@@ -12,7 +12,7 @@ function onInitHomepage() {
 function renderImgs(imgs) {
     var strHTML = '';
     imgs.forEach(function (img) {
-        strHTML += `<div class ="img-gallery ${img.id}"><a href="generator.html"> 
+        strHTML += `<div class ="img-gallery scale-up-top ${img.id}"><a href="generator.html"> 
         <img src="${img.url}" onclick="onChooseImg(${img.id})"></a>
         </div>`;
     })
