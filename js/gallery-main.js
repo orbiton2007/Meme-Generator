@@ -1,6 +1,4 @@
 'use strict'
-
-
 function onInitHomepage() {
     createImages();
     renderImgs(gImgs);
@@ -52,5 +50,6 @@ function onChooseImg(imgId) {
 function onSearchImg(chars) {
     let filteredImgs = [];
     searchImg(chars, filteredImgs);
+    console.log('filtered images:', filteredImgs);
     renderImgs(filteredImgs);
 }

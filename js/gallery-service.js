@@ -19,8 +19,6 @@ function createImages() {
         createImg('meme-imgs/19.jpg', 'celeb'),
         createImg('meme-imgs/drevil.jpg', 'drevil'),
         createImg('meme-imgs/img2.jpg', 'dance, kids'),
-        createImg('meme-imgs/img4.jpg', 'trump'),
-        createImg('meme-imgs/img6.jpg', 'dog'),
     ]
 }
 
@@ -36,7 +34,8 @@ function searchImg(chars, filteredImgs) {
     chars = chars.toLowerCase();
     gImgs.forEach(img => {
         img.keywords.forEach(keyword => {
-            if (keyword.startsWith(chars)) {
+            if (keyword.startsWith(chars) && !filteredImgs.includes(img)) {
+                console.log('keyword', keyword, 'starts with', chars, img);
                 filteredImgs.push(img);
             }
         });
@@ -75,7 +74,7 @@ function sortWordsByPopularity(keywordCountMap) {
 function renderTopFiveSearches() {
     let topFiveSearches = sortWordsByPopularity(keywordsCountMap);
     let strHTML = topFiveSearches.map((word, index) =>
-        `<p class="font-size${index}">${word[0]}</p>`)
+        `<p class="popular-keywords font-size${index}">${word[0]}</p>`)
     document.querySelector('.top-searches').innerHTML = shuffle(strHTML).join('');
 }
 

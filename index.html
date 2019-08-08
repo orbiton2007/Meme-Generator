@@ -7,15 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/gallery-main.css">
+    <script src="https://kit.fontawesome.com/562a9bcf5f.js"></script>
 </head>
 
 <body onload="onInitHomepage()">
 
     <section class="main-navbar flex align-center space-between">
-        <span class="search-img">Search: <input type="text" class="search-input" placeholder=" Enter keyword for search"
-                onkeyup="onSearchImg(this.value)"></span>
-        <h2>Meme Generator</h2>
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <span class="search-img"><span class="search-txt">Search:</span> <input type="text" class="search-input"
+                placeholder=" Enter keyword for search" onkeyup="onSearchImg(this.value)"></span>
+        <h2 class="app-logo">Meme Generator</h2>
+        <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
     </section>
 
     <main class="main-container">
